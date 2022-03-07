@@ -1,0 +1,46 @@
+.Checkout {
+  // background-color: red;
+  &-detail{
+    // background-color: blue;
+  }
+  &-cart{ 
+    &-btn{
+      color: green;
+    &:hover{
+      color: red;
+    }
+    }
+    &-end{
+      border-top: 2px solid black;
+      padding-top: 2rem;
+      color: green;
+    }
+  }
+  &-form {
+    label {
+      display: block;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: rgb(33, 0, 95);
+    }
+    &-contact{
+      input {
+        margin: 1rem;
+        border: 2px solid rgb(33, 0, 95);
+        border-radius: 24px;
+        width: 12rem;
+        &:focus{
+          width: 16rem;
+          // border-color: green;
+        }
+      }
+    } 
+    button {
+      margin-top: 3rem;
+      background-color: yellow;
+      width: 100%;
+    }  
+  }
+}
+
+ 

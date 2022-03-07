@@ -1,0 +1,67 @@
+@mixin h1 {
+  @include rfs(3rem); //48px
+
+}
+@mixin h2 {
+  @include rfs(1.5rem); //24px
+
+}
+@mixin h3 {
+  @include rfs(1.375rem); //22px
+
+}
+@mixin h4 {
+  @include rfs(1rem); //16px
+
+}
+@mixin h5 {
+  @include rfs(0.875rem); //
+
+}
+@mixin h6 {
+  @include rfs(0.75rem); //12px
+
+}
+
+
+
+
+h1,.h1{
+  @include h1;
+}
+h2,.h2{
+  @include h2;
+}
+h3,.h3{
+  @include h3;
+}
+h4,.h4{
+  @include h4;
+}
+h5,.h5{
+  @include h5;
+}
+h6,.h6{
+  @include h6;
+}
+
+
+
+.font-semibold{
+  font-weight: 600;
+}
+.font-bold{
+  font-weight: 900;
+}
+
+
+p{
+  @include rfs(16);
+  font-weight: 400;
+}
+
+
+.heading{
+  color: $orange;
+  font-weight: 700;
+}

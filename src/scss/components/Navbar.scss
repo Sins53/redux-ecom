@@ -1,0 +1,22 @@
+.Navbar {
+  //background-color: rgb(5, 5, 70);
+  background-image: linear-gradient(to left, rgb(0, 0, 46), rgb(10, 7, 235));
+  height: 3.5rem;
+  padding-top: 0.75rem;
+  h2 {
+    display: inline;
+    padding-left: 1rem;
+    color: red;
+  }
+  &-title {
+    h2 {
+      color: green;
+      background-color: black;
+    } 
+  }
+  button {
+    margin-left: 2rem;
+    background-color: white;
+  }
+
+}

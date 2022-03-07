@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+
+@import './scss/abstracts/variables';
+@import './scss/frameworks/bootstrap';
+
+
+@import './scss/abstracts/mixins';
+@import './scss/abstracts/functions';
+
+
+
+@import './scss/base/base';
+@import './scss/base/typography';
+@import './scss/base/utilities';
+
+@import './scss/components/Navbar';
+@import './scss/components/ListCard';
+@import './scss/components/AdderCart';
+@import './scss/components/Cart';
+@import './scss/components/Checkout';
+@import './scss/components/FilterModal';
+
+
+
