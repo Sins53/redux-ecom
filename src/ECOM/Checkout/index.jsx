@@ -6,7 +6,7 @@ import CheckoutSuccess from './CheckoutSuccess'
 
 const Checkout = () => {
   const [formSubmit, setFormSubmit] = useState(true) 
-  
+
   return (
     <>
     {formSubmit ? 
