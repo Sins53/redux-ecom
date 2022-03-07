@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Navbar from '../Navbar'
 import CheckoutCart from './CheckoutCart'
 import CheckoutForm from './CheckoutForm'
 import CheckoutSuccess from './CheckoutSuccess'
@@ -9,6 +10,7 @@ const Checkout = () => {
 
   return (
     <>
+    <Navbar />
     {formSubmit ? 
     <>
     <h1>Checkout</h1> 

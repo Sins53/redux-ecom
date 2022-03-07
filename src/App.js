@@ -1,6 +1,5 @@
 import Ecom from './ECOM'
-import { Provider } from "react-redux";
-import store from "./redux/store";
+import { Route, Routes } from 'react-router-dom';
 import Checkout from './ECOM/Checkout'
 // import Adder from './Components/Adder';
 import FilterModal from './ECOM/FilterModal'
@@ -9,13 +8,14 @@ import ProductPage from './ECOM/PrductPage';
 function App() {
   return (
    <>
-   <Provider store={store} >
+      
+   <Routes> 
+      <Route path='/' exact element={<Ecom />} />
+      <Route path='/checkout/' exact element={<Checkout />} />
+      <Route path='/product/:id' exact element={<ProductPage />} />
       {/* <FilterModal /> */}
-      <Ecom />
-      {/* <Checkout /> */}
-      {/* <ProductPage /> */}
       {/* <Adder /> */}
-   </Provider>
+    </Routes>
    </>
   );
 }

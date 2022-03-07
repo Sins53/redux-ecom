@@ -3,31 +3,37 @@ import { useDispatch, useSelector } from "react-redux";
 import Adder from "../../Components/Adder";
 import Navbar from "../Navbar";
 import { addCart } from "../../redux/actions/cart";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ProductPage = () => {
+  const { id } = useParams();
+  
   const productList = useSelector((state) => state.product.products);
   const orderValue = useSelector((state) => state.order);
   const cart = useSelector((state) => state.cart.cart);
 
-  var a = 0;
+  var id1 = Number(id)
+
+  console.log(id)
 
   const dispatch = useDispatch();
-  const id = 6;
   var category = '';
 
   var imgUrl = "https://electronic-ecommerce.herokuapp.com/";
 
   var arr = productList.filter(checkFilter);
   var arr1 = productList.filter(categoryFilter);
+  var arrReduced = arr1.slice(0, 4);
 
   function checkFilter(item) {
-    if (item.id === id) {
+    if (item.id === id1) {
       category = item.category[1]
       return item;
     }
   }
   function categoryFilter(item) {
-    if (item.id !== 1 && item.category[1] === category) {
+    if (item.id !== id1 && item.category[1] === category) {
       return item;
     }
   }
@@ -99,13 +105,12 @@ const ProductPage = () => {
                 <div>
                   <h2>Similar Items:</h2>
                   <div className="row ">
-                    {arr1.map((item) => {
-                      a++
-                      while (a<5) {
+                    {arrReduced.map((item) => {
                         return (
                           <div className="col-lg-3 Body-list-card" key={item.id}>
                             <div className="ListCard" id={item.id}>
                               <div className="ListCard-items">
+                              <Link to={`/product/${item.id}`}>
                                 <div>
                                   <img
                                     className="ListCard-image"
@@ -113,6 +118,7 @@ const ProductPage = () => {
                                     alt=""
                                   />
                                 </div>
+                                </Link>
                                 <div className="text-end mt-2">
                                   <Adder id={item.id} stock={item.stock} />
                                 </div>
@@ -155,10 +161,9 @@ const ProductPage = () => {
                               </div>
                             </div>
                           </div>
-                        );
-                      } 
-                      return (<><br /><br /><br /><br /><br /></>)                   
+                        );                
                     })}
+                    <br /><br /><br /><br /><br />
                   </div>
                 </div>
               </>

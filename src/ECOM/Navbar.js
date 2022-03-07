@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Cart from "../Components/Cart";
 import { initializeValues } from "../redux/actions/adder";
 import { addCart } from "../redux/actions/cart";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const cartCount = useSelector((state) => state.cart.cart.length);
@@ -34,7 +35,10 @@ const Navbar = () => {
             <h2 className="Navbar-title">SHOPMANDU</h2>
           </div>
           <div className="col text-end Navbar-links">
-            <h2>Home</h2>
+            <Link style={{ color: "white", textDecoration: "none" }} to="/">
+              <h2>Home</h2>
+            </Link>
+
             <button
               className="btn"
               data-bs-toggle="modal"
@@ -87,9 +91,16 @@ const Navbar = () => {
                   Reset
                 </button>
                 <span> </span>
-                <button type="button" className="btn btn-success">
-                  Checkout
-                </button>
+                <Link to="/checkout">
+                  <button
+                    type="button"
+                    className="btn btn-success"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    Checkout
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

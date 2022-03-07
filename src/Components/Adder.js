@@ -54,7 +54,7 @@ const Adder = (props) => {
   return (
     <div className="AdderCart">
       <button onClick={decreaseOrder}><GrSubtractCircle /> </button>
-      <input className='text-center' type={'number'} value={orderValue[id]} disabled />
+      <input className='text-center' type={'number'} defaultValue={orderValue[id]} readOnly />
       <button onClick={increaseOrder}><GrAddCircle /> </button>
     </div>
   )

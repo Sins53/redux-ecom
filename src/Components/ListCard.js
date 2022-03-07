@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Adder from "./Adder";
 import { addCart } from "../redux/actions/cart";
+import { Link } from "react-router-dom";
 
 const ListCard = () => {
   const productList = useSelector((state) => state.product.products);
@@ -84,13 +85,16 @@ const ListCard = () => {
               <div className="col-lg-3 Body-list-card" key={item.id}>
                 <div className="ListCard" id={item.id}>
                   <div className="ListCard-items">
-                    <div>
+                  <Link to={`product/${item.id}`}>
+                  <div>
                       <img
                         className="ListCard-image"
                         src={imgUrl + item.image}
                         alt=""
                       />
                     </div>
+      </Link>
+                    
                     <div className="text-end mt-2">
                       <Adder id={item.id} stock={item.stock} />
                     </div>

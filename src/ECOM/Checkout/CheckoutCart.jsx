@@ -45,7 +45,7 @@ const CheckoutCart = () => {
           }
           return (
             <>
-              <div className="row mt-3">
+              <div className="row mt-3" key={item.name + item.id}>
                 {/* <div className="col-auto">
                      <button className='btn btn-danger mt-3' onClick={() => removeCart(item.id)}> <AiFillCloseCircle /></button> 
                      </div> */}
