@@ -1,15 +1,21 @@
-import { DECREASE_ORDER, INCREASE_ORDER, INITIAL_VALUES, ORDERED_VALUE, RESET_ORDER } from "../contants";
+import {
+  DECREASE_ORDER,
+  INCREASE_ORDER,
+  INITIAL_VALUES,
+  ORDERED_VALUE,
+  RESET_ORDER,
+} from "../contants";
 
-export const fetchorder = (value) => (dispatch) =>{
+export const fetchorder = (value) => (dispatch) => {
   dispatch({
-    type : ORDERED_VALUE,
-    payload : value,
-  })
-}
+    type: ORDERED_VALUE,
+    payload: value,
+  });
+};
 
 export const initializeValues = (id) => {
-  var arr = []
-  for(var i=1; i<= id ; i++){
+  var arr = [];
+  for (var i = 1; i <= id; i++) {
     arr[i] = 1;
   }
   return {
@@ -38,7 +44,7 @@ export const decrement = (id) => {
 
 export const resetOrder = (id) => {
   return {
-    type : RESET_ORDER,
-    payload :id
-  }
-}
+    type: RESET_ORDER,
+    payload: id,
+  };
+};
