@@ -26,9 +26,7 @@ const Checkout = () => {
         </div>
       </div>
     </div>
-     </> : <CheckoutSuccess
-     setFormSubmit = {setFormSubmit}
-     />}
+     </> : <CheckoutSuccess/>}
   </>
   )
 }
