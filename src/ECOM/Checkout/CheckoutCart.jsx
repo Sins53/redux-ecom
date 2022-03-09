@@ -46,9 +46,6 @@ const CheckoutCart = () => {
           return (
             <>
               <div className="row mt-3" key={item.name + item.id}>
-                {/* <div className="col-auto">
-                     <button className='btn btn-danger mt-3' onClick={() => removeCart(item.id)}> <AiFillCloseCircle /></button> 
-                     </div> */}
                 <div className="col-2 ">
                   <img className="Cart-img" src={imgUrl + item.image} alt="" />
                 </div>
@@ -69,7 +66,7 @@ const CheckoutCart = () => {
                 </div>
                 <div className="col-3 align-self-center text-center">
                   <h5>SubTotal: Rs. {item.r * item.ordered}</h5>
-                  <button className="btn Checkout-cart-btn">
+                  <button className="btn Checkout-cart-btn" onClick={() => removeCart(item.id)}>
                     <h5>Remove</h5>
                   </button>
                 </div>

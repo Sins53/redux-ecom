@@ -4,6 +4,7 @@ import {
   REMOVE_ITEM,
   CART_INCREASE_ORDER,
   CART_DECREASE_ORDER,
+  CART_FILTER_DUPLICATE,
 } from "../contants";
 
 const initialState = {
@@ -54,6 +55,9 @@ const cartReducer = (state = initialState, action) => {
         ...state,
         cart: arrd,
       };
+      case CART_FILTER_DUPLICATE :
+        state = action.payload;
+        return {...state};
     default:
       return state;
   }

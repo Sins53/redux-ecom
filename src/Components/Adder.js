@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import {increment, decrement, initializeValues } from '../redux/actions/adder'
+import {increment, decrement } from '../redux/actions/adder'
 import {GrSubtractCircle , GrAddCircle} from 'react-icons/gr'
 import { cartAdderDecrease, cartAdderIncrease, removeItem } from '../redux/actions/cart';
 
@@ -13,11 +13,6 @@ const Adder = (props) => {
   const orderValue = useSelector((state) => state.order);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if(!ordered){
-      dispatch(initializeValues(id))
-    }
-  }, [])
 
   const decreaseOrder = () => {
     /* orderValue[id] === 1 ?
@@ -54,7 +49,8 @@ const Adder = (props) => {
   return (
     <div className="AdderCart">
       <button onClick={decreaseOrder}><GrSubtractCircle /> </button>
-      <input className='text-center' type={'number'} defaultValue={orderValue[id]} readOnly />
+      <input className='text-center' type={'number'} value={orderValue[id]} disabled />
+      {/* <input className='text-center' type={'number'} defaultValue={orderValue[id]} readOnly /> */}
       <button onClick={increaseOrder}><GrAddCircle /> </button>
     </div>
   )

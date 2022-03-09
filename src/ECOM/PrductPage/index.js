@@ -102,7 +102,7 @@ const ProductPage = () => {
                     </div>
                   </div>
                 </div>
-                <div>
+                <div className="mt-5">
                   <h2>Similar Items:</h2>
                   <div className="row ">
                     {arrReduced.map((item) => {
@@ -169,6 +169,7 @@ const ProductPage = () => {
               </>
             );
         })}
+        <br/> <br/> <br/> <br/>
       </div>
       
     </>

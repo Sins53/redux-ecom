@@ -12,6 +12,8 @@ const Cart = () => {
 
   const imgUrl = 'https://electronic-ecommerce.herokuapp.com/'
 
+  console.log(cart, 'here cart --------------')
+
   const removeCart = (id) => {
     dispatch(removeItem(id));
     dispatch(resetOrder(id));
@@ -23,7 +25,7 @@ const Cart = () => {
       {item.ordered <= 0 ? removeCart(item.id) : item.stock < 5 ? stockName = 'danger' : item.stock < 10 ? stockName = 'ok' : stockName = 'full'}
       return (
         <>
-        <div className="row mt-1" key={item.id + item.category[1]}>
+        <div className="row mt-1" key={item.name}>
         <div className="col-auto">
          <button className='btn btn-danger mt-3' onClick={() => removeCart(item.id)}> <AiFillCloseCircle /></button> 
          </div>

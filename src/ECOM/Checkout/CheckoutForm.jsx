@@ -8,6 +8,7 @@ const initialValues = {
   name: "",
   email: "",
   phone: "",
+  address: "",
 };
 const validationSchema = Yup.object({
   name: Yup.string().required("Please Enter Name"),
@@ -18,6 +19,7 @@ const validationSchema = Yup.object({
     .min(10, "Min value 10.")
     .max(10, "Must be below 10")
     .required(),
+    address: Yup.string().required("Please Enter Address"),
 });
 
 
@@ -73,9 +75,20 @@ const CheckoutForm = (props) => {
               <Validation errors={errors} name="email" />
             </div>
           </div>
-          <div className="Checkout-form-address">
+          <div className="Checkout-form-address mt-5">
             <div>
               <h2>Shipping informations</h2>
+            </div>
+            <div className="mt-3">
+              <label> Address </label>
+              <input
+                type="text"
+                name="address"
+                value={values.address}
+                onChange={handleChange}
+                placeholder="Address"
+              />
+              <Validation errors={errors} name="address" />
             </div>
           </div>
           <button> Confirm</button>

@@ -1,6 +1,7 @@
 import {
   ADD_CART,
   CART_DECREASE_ORDER,
+  CART_FILTER_DUPLICATE,
   CART_INCREASE_ORDER,
   CART_LIST,
   REMOVE_ITEM,
@@ -41,3 +42,10 @@ export const cartAdderDecrease = (id) => {
     payload: id,
   };
 };
+
+export const cartFilterData = (value) => {
+  return{
+    type: CART_FILTER_DUPLICATE,
+    payload: value,
+  }
+}

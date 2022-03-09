@@ -13,6 +13,7 @@ const ListCard = () => {
   const dispatch = useDispatch();
 
   const mlist = ["", "laptop", "mobile", "watch", "keyboard", "headseat"];
+  var addedToCart;
 
   const toRs = (price) => {
     var rs = price;
@@ -64,9 +65,17 @@ const ListCard = () => {
   const updateCart = (item) => {
     // console.log(item, '------here----')
     Object.assign(item, { r: toRs(item.price), ordered: orderValue[item.id] });
-    var arr = [item, ...cart];
-    var unique = [...new Set(arr)];
+    var arr = []
+    cart.forEach((citem) => {
+      if (item.id !== citem.id){
+        arr.push(citem)
+      }
+    })
+    addedToCart = [item, ...arr];
+    var unique = [...new Set(addedToCart)];
+    console.log(unique)
     dispatch(addCart(unique));
+
     // setCart(unique);
     // if(reduxCart !==[]){
     //   setCart(reduxCart)
@@ -85,16 +94,16 @@ const ListCard = () => {
               <div className="col-lg-3 Body-list-card" key={item.id}>
                 <div className="ListCard" id={item.id}>
                   <div className="ListCard-items">
-                  <Link to={`product/${item.id}`}>
-                  <div>
-                      <img
-                        className="ListCard-image"
-                        src={imgUrl + item.image}
-                        alt=""
-                      />
-                    </div>
-      </Link>
-                    
+                    <Link to={`product/${item.id}`}>
+                      <div>
+                        <img
+                          className="ListCard-image"
+                          src={imgUrl + item.image}
+                          alt=""
+                        />
+                      </div>
+                    </Link>
+
                     <div className="text-end mt-2">
                       <Adder id={item.id} stock={item.stock} />
                     </div>

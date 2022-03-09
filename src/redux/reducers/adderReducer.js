@@ -6,9 +6,10 @@ import {
   RESET_ORDER,
 } from "../contants";
 
-// const initialState = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+const initialState = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
 
-const adderReducer = (state = [], action) => {
+const adderReducer = (state = initialState, action) => {
+// const adderReducer = (state = [], action) => {
   switch (action.type) {
     case ORDERED_VALUE:
       return state;

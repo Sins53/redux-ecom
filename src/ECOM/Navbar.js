@@ -6,15 +6,20 @@ import { initializeValues } from "../redux/actions/adder";
 import { addCart } from "../redux/actions/cart";
 import { Link } from "react-router-dom";
 
+
 const Navbar = () => {
   const cartCount = useSelector((state) => state.cart.cart.length);
   const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
 
+
   const resetCart = () => {
     dispatch(addCart([]));
     dispatch(initializeValues(20));
   };
+  const displayMessage = () => {
+    alert('select items first...')
+  }
 
   if (cart !== []) {
     var total = 0;
@@ -26,6 +31,7 @@ const Navbar = () => {
       });
     }
   }
+
 
   return (
     <>
@@ -90,17 +96,24 @@ const Navbar = () => {
                 >
                   Reset
                 </button>
-                <span> </span>
-                <Link to="/checkout">
+                <span> </span> 
+                {uniqueItems>= 1 ? <Link to="/checkout">             
                   <button
                     type="button"
                     className="btn btn-success"
                     data-bs-dismiss="modal"
                     aria-label="Close"
-                  >
-                    Checkout
+                  >                  
+                    Checkout   
                   </button>
-                </Link>
+                  </Link> : <button
+                    type="button"
+                    className="btn btn-success"
+                    onClick={displayMessage}
+                  >                
+                    Checkout   
+                  </button>}
+                
               </div>
             </div>
           </div>
