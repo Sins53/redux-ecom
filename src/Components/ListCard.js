@@ -4,7 +4,9 @@ import Adder from "./Adder";
 import { addCart } from "../redux/actions/cart";
 import { Link } from "react-router-dom";
 
-const ListCard = () => {
+const ListCard = (props) => {
+  const {arrReduced} = props;
+
   const productList = useSelector((state) => state.product.products);
   const orderValue = useSelector((state) => state.order);
   const cart = useSelector((state) => state.cart.cart);
@@ -39,6 +41,10 @@ const ListCard = () => {
         // console.log(mlist[filterData.category])
       }
     }
+  }
+
+  if(arrReduced){
+    arr = arrReduced;
   }
 
   // const [cart, setCart] = useState([])
