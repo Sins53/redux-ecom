@@ -5,7 +5,7 @@ import { addCart } from "../redux/actions/cart";
 import { Link } from "react-router-dom";
 
 const ListCard = (props) => {
-  const {arrReduced} = props;
+  const { arrReduced } = props;
 
   const productList = useSelector((state) => state.product.products);
   const orderValue = useSelector((state) => state.order);
@@ -43,7 +43,7 @@ const ListCard = (props) => {
     }
   }
 
-  if(arrReduced){
+  if (arrReduced) {
     arr = arrReduced;
   }
 
@@ -71,15 +71,15 @@ const ListCard = (props) => {
   const updateCart = (item) => {
     // console.log(item, '------here----')
     Object.assign(item, { r: toRs(item.price), ordered: orderValue[item.id] });
-    var arr = []
+    var arr = [];
     cart.forEach((citem) => {
-      if (item.id !== citem.id){
-        arr.push(citem)
+      if (item.id !== citem.id) {
+        arr.push(citem);
       }
-    })
+    });
     addedToCart = [item, ...arr];
     var unique = [...new Set(addedToCart)];
-    console.log(unique)
+    console.log(unique);
     dispatch(addCart(unique));
 
     // setCart(unique);
@@ -100,7 +100,7 @@ const ListCard = (props) => {
               <div className="col-lg-3 Body-list-card" key={item.id}>
                 <div className="ListCard" id={item.id}>
                   <div className="ListCard-items">
-                    <Link to={`product/${item.id}`}>
+                    <Link to={`/product/${item.id}`}>
                       <div>
                         <img
                           className="ListCard-image"
